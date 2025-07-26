@@ -11,8 +11,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://vdailyapp.github.io",
-  base: "/open-widgets",
   integrations: [react(), svelte(), vue()],
 
   vite: {
