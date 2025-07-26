@@ -1,0 +1,8 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PomodoroWidget from "../components/react/pomodoro";
+---
+
+<Layout>
+  <PomodoroWidget client:only="react" />
+</Layout>
