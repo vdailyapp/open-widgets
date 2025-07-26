@@ -1,19 +1,21 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
-import svelte from '@astrojs/svelte';
+import svelte from "@astrojs/svelte";
 
-import vue from '@astrojs/vue';
+import vue from "@astrojs/vue";
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://vdailyapp.github.io",
+  base: "/open-widgets",
   integrations: [react(), svelte(), vue()],
 
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });
