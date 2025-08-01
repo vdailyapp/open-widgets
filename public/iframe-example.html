@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Widget Iframe Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .iframe-container {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .controls {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .preset {
+            background: #28a745;
+        }
+        .preset:hover {
+            background: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <h1>🗺️ Map Widget Iframe Integration Example</h1>
+    
+    <p>This demonstrates how to embed the map widget in an iframe and configure it using postMessage API.</p>
+    
+    <div class="controls">
+        <h3>Configuration Presets:</h3>
+        <button class="preset" onclick="loadNewYork()">📍 New York</button>
+        <button class="preset" onclick="loadLondon()">📍 London</button>
+        <button class="preset" onclick="loadTokyo()">📍 Tokyo</button>
+        <button class="preset" onclick="loadSydney()">📍 Sydney</button>
+        <button onclick="loadCustom()">🎯 Custom Locations</button>
+    </div>
+    
+    <div class="iframe-container">
+        <iframe id="mapWidget" src="http://localhost:4321/map"></iframe>
+    </div>
+    
+    <div class="controls">
+        <h3>Instructions:</h3>
+        <ul>
+            <li>Click the preset buttons above to instantly change the map location and pins</li>
+            <li>The widget supports full configuration via postMessage API</li>
+            <li>Settings are persisted in localStorage within the iframe</li>
+            <li>Perfect for embedding in dashboards, websites, or applications</li>
+        </ul>
+    </div>
+
+    <script>
+        const iframe = document.getElementById('mapWidget');
+        
+        function sendConfig(config) {
+            iframe.contentWindow.postMessage({
+                type: 'MAP_CONFIG',
+                config: config
+            }, '*');
+        }
+        
+        function loadNewYork() {
+            sendConfig({
+                center: [40.7128, -74.0060],
+                zoom: 12,
+                pins: [
+                    {
+                        id: 'nyc1',
+                        lat: 40.7128,
+                        lng: -74.0060,
+                        title: 'New York City',
+                        description: 'The Big Apple'
+                    },
+                    {
+                        id: 'nyc2',
+                        lat: 40.7589,
+                        lng: -73.9851,
+                        title: 'Times Square',
+                        description: 'The heart of NYC'
+                    },
+                    {
+                        id: 'nyc3',
+                        lat: 40.7829,
+                        lng: -73.9654,
+                        title: 'Central Park',
+                        description: 'Beautiful park in Manhattan'
+                    }
+                ]
+            });
+        }
+        
+        function loadLondon() {
+            sendConfig({
+                center: [51.5074, -0.1278],
+                zoom: 12,
+                pins: [
+                    {
+                        id: 'london1',
+                        lat: 51.5074,
+                        lng: -0.1278,
+                        title: 'London',
+                        description: 'Capital of England'
+                    },
+                    {
+                        id: 'london2',
+                        lat: 51.5014,
+                        lng: -0.1419,
+                        title: 'Buckingham Palace',
+                        description: 'Royal residence'
+                    }
+                ]
+            });
+        }
+        
+        function loadTokyo() {
+            sendConfig({
+                center: [35.6762, 139.6503],
+                zoom: 12,
+                pins: [
+                    {
+                        id: 'tokyo1',
+                        lat: 35.6762,
+                        lng: 139.6503,
+                        title: 'Tokyo',
+                        description: 'Capital of Japan'
+                    },
+                    {
+                        id: 'tokyo2',
+                        lat: 35.6586,
+                        lng: 139.7454,
+                        title: 'Tokyo Skytree',
+                        description: 'Iconic tower and broadcasting structure'
+                    }
+                ]
+            });
+        }
+        
+        function loadSydney() {
+            sendConfig({
+                center: [-33.8688, 151.2093],
+                zoom: 12,
+                pins: [
+                    {
+                        id: 'sydney1',
+                        lat: -33.8688,
+                        lng: 151.2093,
+                        title: 'Sydney',
+                        description: 'Largest city in Australia'
+                    },
+                    {
+                        id: 'sydney2',
+                        lat: -33.8568,
+                        lng: 151.2153,
+                        title: 'Sydney Opera House',
+                        description: 'Iconic performing arts venue'
+                    }
+                ]
+            });
+        }
+        
+        function loadCustom() {
+            sendConfig({
+                center: [37.7749, -122.4194],
+                zoom: 10,
+                pins: [
+                    {
+                        id: 'sf1',
+                        lat: 37.7749,
+                        lng: -122.4194,
+                        title: 'San Francisco',
+                        description: 'Golden Gate City'
+                    },
+                    {
+                        id: 'sf2',
+                        lat: 37.8199,
+                        lng: -122.4783,
+                        title: 'Golden Gate Bridge',
+                        description: 'Famous suspension bridge'
+                    },
+                    {
+                        id: 'sf3',
+                        lat: 37.8080,
+                        lng: -122.4177,
+                        title: 'Alcatraz Island',
+                        description: 'Former federal prison'
+                    }
+                ]
+            });
+        }
+        
+        // Load New York by default after iframe loads
+        iframe.onload = function() {
+            setTimeout(loadNewYork, 500);
+        };
+    </script>
+</body>
+</html>
