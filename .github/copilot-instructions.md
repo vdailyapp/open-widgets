@@ -1,124 +1,28 @@
-# VDaily Widgets - AI Coding Instructions
+You are an expert AI engineer working on building frontend widgets using Astro framework, TailwindCSS, and TypeScript. Use pnpm as the package manager, and you can install additional packages if needed.
 
-## Project Overview
+🎯 Your goal: Build a simple, responsive, embeddable frontend widget using Astro. This widget is intended to be embedded via an iframe, and it should follow these rules:
 
-VDaily Widgets is an Astro-based multi-framework widget library that combines React, Svelte, and Vue components into a unified daily productivity suite. The project demonstrates Astro's framework-agnostic capabilities by implementing productivity widgets (Pomodoro timer, speed reader, clock) across different frontend frameworks.
+📌 Widget Rules:
+1. **Design Simplicity**: The widget must have a minimal UI, clean layout, fully responsive across screen sizes.
+2. **Embed Compatibility**: Since the widget will be embedded in an iframe, it must be able to receive configuration data from the `parent window` using the `postMessage` API.
+3. **Persistent State**: All user data and widget state must be stored in `localStorage` or `sessionStorage` to enable data persistence across reloads.
+4. **State Management**: You may use external libraries like `zustand` or others for state management if needed.
+5. **Content Only**: The widget should not contain headers, footers, sidebars, or unnecessary layout elements. Keep it focused on content.
+6. **Config UI**: Any extra UI like settings or configuration panels should be accessed via a floating settings button that opens a modal for configuration.
 
-## Architecture & Multi-Framework Setup
+📦 Technical Stack:
+- Astro (frontend framework)
+- TailwindCSS (styling)
+- TypeScript (language)
+- zustand (optional, for state management)
+- pnpm (for installing packages)
 
-### Core Structure
+🛠️ Implementation Requirements:
+- Set up Astro project and configure TailwindCSS.
+- Design a responsive widget layout.
+- Implement `postMessage` listener to receive config from parent window.
+- Save and restore user data/state using `localStorage` or `sessionStorage`.
+- Add a floating button (bottom-right corner) that opens a modal to modify widget settings.
 
-- **Astro**: Static site generator serving as the meta-framework host
-- **React**: Primary framework for interactive widgets (`src/components/react/`)
-- **Svelte & Vue**: Configured but unused (`src/components/svelte/`, `src/components/vue/`)
-- **TailwindCSS v4**: Modern CSS framework with Vite plugin integration
-
-### Framework Integration Pattern
-
-```astro
-<!-- Page-level component inclusion -->
-<Layout>
-  <PomodoroWidget client:only="react" />
-</Layout>
-```
-
-- Use `client:only="react"` for stateful React components requiring hydration
-- Astro components handle routing and layout structure
-- Framework-specific components live in organized subdirectories
-
-## Key Development Workflows
-
-### Commands (pnpm-based)
-
-```bash
-pnpm dev          # Start dev server on localhost:4321
-pnpm build        # Build for production to ./dist/
-pnpm preview      # Preview production build
-```
-
-### Component Creation Pattern
-
-1. **React widgets**: Place in `src/components/react/` with `.tsx` extension
-2. **Page routing**: Create `.astro` files in `src/pages/`
-3. **Shared layout**: Use `src/layouts/Layout.astro` for consistent structure
-
-Example widget integration:
-
-```astro
----
-import Layout from "../layouts/Layout.astro";
-import YourWidget from "../components/react/your-widget";
----
-
-<Layout>
-  <YourWidget client:only="react" />
-</Layout>
-```
-
-## Project-Specific Conventions
-
-### Widget Architecture
-
-- **Self-contained components**: Each widget is fully functional standalone (see `pomodoro.tsx`, `reader.tsx`)
-- **State management**: Local React state with `useState`/`useEffect` patterns
-- **Timer patterns**: Use `useRef` for interval management in time-based widgets
-- **Lucide React icons**: Consistent iconography across all widgets
-
-### Styling Approach
-
-- **TailwindCSS v4**: Import via `@import "tailwindcss"` in `global.css`
-- **Component-scoped styles**: Inline Tailwind classes preferred over CSS modules
-- **Responsive design**: Mobile-first approach with Tailwind responsive utilities
-
-### TypeScript Configuration
-
-- **Strict mode**: Extends `astro/tsconfigs/strict`
-- **JSX setup**: `jsx: "preserve"` with React import source
-- **Framework types**: Automatic type generation for Astro components
-
-## Critical Dependencies
-
-### Framework Integrations
-
-- `@astrojs/react`, `@astrojs/svelte`, `@astrojs/vue`: Enable multi-framework support
-- `@tailwindcss/vite`: TailwindCSS v4 Vite integration
-- `antd`: UI component library (imported but not extensively used)
-- `lucide-react`: Icon system for React components
-
-### Development Notes
-
-- **Vietnamese locale**: Layout sets `lang="vi"` - consider i18n if expanding
-- **Widget isolation**: Each widget operates independently with no shared state
-- **Client-side rendering**: Interactive widgets require explicit hydration directives
-- **Asset handling**: Use Astro's asset pipeline for images and SVGs
-
-## Deployment & CI/CD
-
-### GitHub Pages Deployment
-
-- **Auto-deployment**: Push to `main` branch triggers GitHub Actions workflow
-- **Static hosting**: Built to `./dist/` and deployed to GitHub Pages
-- **Base path**: Configured for `/vdaily-widgets` repository path
-- **Build process**: Uses pnpm with caching for faster CI builds
-
-### Configuration Notes
-
-- `astro.config.mjs` includes `site` and `base` for proper GitHub Pages routing
-- Workflow uses Node.js 20 and pnpm 9 for consistency
-- Pages configuration handled automatically by Actions
-
-## File Organization Patterns
-
-```
-src/
-├── components/
-│   ├── react/           # Interactive widgets (TSX)
-│   ├── svelte/          # Future Svelte components
-│   ├── vue/            # Future Vue components
-│   └── Welcome.astro   # Astro-native components
-├── layouts/            # Shared page layouts
-├── pages/              # File-based routing
-└── styles/             # Global CSS imports
-```
-
-When adding new widgets, follow the established pattern of creating dedicated React components in the appropriate framework directory and exposing them through Astro pages with proper hydration directives.
+💬 Output:
+Generate code with clear file structure, comments for each step, and installation commands using `pnpm`. 
