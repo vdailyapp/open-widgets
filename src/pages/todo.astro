@@ -1,0 +1,8 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TodoWidget from "../components/react/todo";
+---
+
+<Layout title="Todo Widget">
+  <TodoWidget client:only="react" />
+</Layout>
