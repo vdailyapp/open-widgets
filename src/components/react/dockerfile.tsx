@@ -79,7 +79,8 @@ const DockerfileWidget = () => {
     
     if (savedConfig) {
       try {
-        setConfig(JSON.parse(savedConfig));
+        const parsedConfig = JSON.parse(savedConfig);
+        setConfig(parsedConfig);
       } catch (e) {
         console.warn('Failed to parse saved config:', e);
       }
@@ -202,12 +203,12 @@ const DockerfileWidget = () => {
   };
 
   const estimateInstructionSize = (instruction: string, args: string): string => {
-    // Simplified size estimation
+    // Simplified size estimation based on instruction type
     const sizeEstimates: Record<string, string> = {
-      'FROM': '~100MB',
-      'RUN': '~10-50MB',
-      'COPY': '~1-10MB',
-      'ADD': '~1-20MB',
+      'FROM': args.includes('alpine') ? '~5MB' : '~100MB',
+      'RUN': args.includes('install') || args.includes('apt') || args.includes('yum') ? '~50MB' : '~10MB',
+      'COPY': '~5MB',
+      'ADD': '~10MB',
       'WORKDIR': '~0MB',
       'ENV': '~0MB',
       'EXPOSE': '~0MB',
@@ -215,7 +216,8 @@ const DockerfileWidget = () => {
       'ENTRYPOINT': '~0MB',
       'VOLUME': '~0MB',
       'USER': '~0MB',
-      'LABEL': '~0MB'
+      'LABEL': '~0MB',
+      'ARG': '~0MB'
     };
     return sizeEstimates[instruction] || '~Unknown';
   };
