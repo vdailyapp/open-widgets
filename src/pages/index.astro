@@ -1,12 +1,158 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-  <!-- <button class="bg-red-400">Click</button> -->
-  <Welcome />
+<Layout title="Open Widgets - Beautiful, Embeddable Widgets">
+  <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
+          🎨 Open Widgets
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          Beautiful, customizable, and embeddable widgets for any website or application.
+          Each widget is responsive, feature-rich, and easy to integrate.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Birthday Widget -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-pink-400 via-purple-400 to-indigo-400 relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center text-white">
+                <h3 class="text-3xl font-bold mb-2">Happy Birthday!</h3>
+                <div class="text-2xl">🎂 🎈 🎁</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Birthday Widget</h3>
+            <p class="text-gray-600 mb-4">
+              Celebrate birthdays with style! Customizable themes, animations, and confetti effects.
+            </p>
+            <div class="flex space-x-2">
+              <a 
+                href="/birthday" 
+                class="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors"
+              >
+                View Widget
+              </a>
+              <span class="bg-green-100 text-green-800 px-3 py-2 rounded-lg text-sm">
+                ✨ New
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pomodoro Widget -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center text-white">
+                <div class="text-4xl font-bold mb-2">25:00</div>
+                <div class="text-lg">Work Session</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Pomodoro Timer</h3>
+            <p class="text-gray-600 mb-4">
+              Boost productivity with the proven Pomodoro Technique. Track your work sessions.
+            </p>
+            <a 
+              href="/pomodoro" 
+              class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
+            >
+              View Widget
+            </a>
+          </div>
+        </div>
+
+        <!-- Crypto Widget -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center text-white">
+                <div class="text-2xl font-bold mb-2">₿ $45,000</div>
+                <div class="text-lg">Crypto Tracker</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Crypto Tracker</h3>
+            <p class="text-gray-600 mb-4">
+              Track cryptocurrency prices and market data in real-time.
+            </p>
+            <a 
+              href="/crypto" 
+              class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors"
+            >
+              View Widget
+            </a>
+          </div>
+        </div>
+
+        <!-- Map Widget -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center text-white">
+                <div class="text-4xl mb-2">🗺️</div>
+                <div class="text-lg">Interactive Map</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Map Widget</h3>
+            <p class="text-gray-600 mb-4">
+              Interactive maps for location display and geographic visualization.
+            </p>
+            <a 
+              href="/map" 
+              class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+            >
+              View Widget
+            </a>
+          </div>
+        </div>
+
+        <!-- Reader Widget -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <div class="h-48 bg-gradient-to-br from-indigo-400 to-purple-600 relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center text-white">
+                <div class="text-4xl mb-2">📖</div>
+                <div class="text-lg">Reader</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Reader Widget</h3>
+            <p class="text-gray-600 mb-4">
+              Clean, distraction-free reading experience with customizable settings.
+            </p>
+            <a 
+              href="/reader" 
+              class="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition-colors"
+            >
+              View Widget
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 text-center">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">🚀 Easy to Embed</h2>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+          All widgets are designed to be easily embedded in any website using iframes. 
+          They support the postMessage API for external configuration and localStorage for persistence.
+        </p>
+        <div class="bg-gray-800 text-green-400 p-4 rounded-lg max-w-2xl mx-auto text-left font-mono text-sm">
+          <div class="text-gray-400 mb-2">// Embed any widget</div>
+          <div>&lt;iframe src="http://localhost:4321/birthday" width="800" height="600"&gt;&lt;/iframe&gt;</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
