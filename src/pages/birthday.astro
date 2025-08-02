@@ -1,0 +1,8 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BirthdayWidget from "../components/react/birthday";
+---
+
+<Layout title="Happy Birthday Widget">
+  <BirthdayWidget client:only="react" />
+</Layout>
