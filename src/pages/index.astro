@@ -116,7 +116,14 @@ const widgets = [
               <div class="flex space-x-2">
                 <a 
                   href={widget.url}
-                  class={`bg-${widget.buttonColor}-500 text-white px-4 py-2 rounded-lg hover:bg-${widget.buttonColor}-600 transition-colors`}
+                  class={
+                    widget.buttonColor === 'purple' ? 'bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors' :
+                    widget.buttonColor === 'red' ? 'bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors' :
+                    widget.buttonColor === 'yellow' ? 'bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors' :
+                    widget.buttonColor === 'green' ? 'bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors' :
+                    widget.buttonColor === 'indigo' ? 'bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition-colors' :
+                    'bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors'
+                  }
                 >
                   View Widget
                 </a>
