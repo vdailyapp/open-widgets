@@ -1,12 +1,147 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const widgets = [
+  {
+    id: 'birthday',
+    name: 'Birthday Widget',
+    description: 'Celebrate birthdays with style! Customizable themes, animations, and confetti effects.',
+    url: '/birthday',
+    background: 'from-pink-400 via-purple-400 to-indigo-400',
+    preview: {
+      title: 'Happy Birthday!',
+      icons: '🎂 🎈 🎁'
+    },
+    buttonColor: 'purple',
+    badge: '✨ New'
+  },
+  {
+    id: 'pomodoro',
+    name: 'Pomodoro Timer',
+    description: 'Boost productivity with the proven Pomodoro Technique. Track your work sessions.',
+    url: '/pomodoro',
+    background: 'from-red-400 to-red-600',
+    preview: {
+      title: '25:00',
+      subtitle: 'Work Session'
+    },
+    buttonColor: 'red'
+  },
+  {
+    id: 'crypto',
+    name: 'Crypto Tracker',
+    description: 'Track cryptocurrency prices and market data in real-time.',
+    url: '/crypto',
+    background: 'from-yellow-400 to-orange-500',
+    preview: {
+      title: '₿ $45,000',
+      subtitle: 'Crypto Tracker'
+    },
+    buttonColor: 'yellow'
+  },
+  {
+    id: 'map',
+    name: 'Map Widget',
+    description: 'Interactive maps for location display and geographic visualization.',
+    url: '/map',
+    background: 'from-green-400 to-blue-500',
+    preview: {
+      title: '🗺️',
+      subtitle: 'Interactive Map'
+    },
+    buttonColor: 'green'
+  },
+  {
+    id: 'reader',
+    name: 'Reader Widget',
+    description: 'Clean, distraction-free reading experience with customizable settings.',
+    url: '/reader',
+    background: 'from-indigo-400 to-purple-600',
+    preview: {
+      title: '📖',
+      subtitle: 'Reader'
+    },
+    buttonColor: 'indigo'
+  },
+  {
+    id: 'sql-visualizer',
+    name: 'SQL Visualizer',
+    description: 'Visualize SQL queries as interactive flow diagrams with tables, joins, and filters.',
+    url: '/sql-visualizer',
+    background: 'from-cyan-400 to-blue-600',
+    preview: {
+      title: '🔍',
+      subtitle: 'SQL Flow'
+    },
+    buttonColor: 'cyan',
+    badge: '✨ New'
+  }
+];
 ---
 
-<Layout>
-  <!-- <button class="bg-red-400">Click</button> -->
-  <Welcome />
+<Layout title="Open Widgets - Beautiful, Embeddable Widgets">
+  <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
+          🎨 Open Widgets
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          Beautiful, customizable, and embeddable widgets for any website or application.
+          Each widget is responsive, feature-rich, and easy to integrate.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {widgets.map(widget => (
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+            <div class={`h-48 bg-gradient-to-br ${widget.background} relative`}>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center text-white">
+                  <div class="text-3xl font-bold mb-2">{widget.preview.title}</div>
+                  {widget.preview.subtitle && (
+                    <div class="text-lg">{widget.preview.subtitle}</div>
+                  )}
+                  {widget.preview.icons && (
+                    <div class="text-2xl">{widget.preview.icons}</div>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">{widget.name}</h3>
+              <p class="text-gray-600 mb-4">
+                {widget.description}
+              </p>
+              <div class="flex space-x-2">
+                <a 
+                  href={widget.url}
+                  class={`bg-${widget.buttonColor}-500 text-white px-4 py-2 rounded-lg hover:bg-${widget.buttonColor}-600 transition-colors`}
+                >
+                  View Widget
+                </a>
+                {widget.badge && (
+                  <span class="bg-green-100 text-green-800 px-3 py-2 rounded-lg text-sm">
+                    {widget.badge}
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-16 text-center">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">🚀 Easy to Embed</h2>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+          All widgets are designed to be easily embedded in any website using iframes. 
+          They support the postMessage API for external configuration and localStorage for persistence.
+        </p>
+        <div class="bg-gray-800 text-green-400 p-4 rounded-lg max-w-2xl mx-auto text-left font-mono text-sm">
+          <div class="text-gray-400 mb-2">// Embed any widget</div>
+          <div>&lt;iframe src="http://localhost:4321/birthday" width="800" height="600"&gt;&lt;/iframe&gt;</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
