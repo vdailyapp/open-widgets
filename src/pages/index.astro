@@ -14,6 +14,18 @@ const widgets = [
     },
     buttonColor: 'blue',
     badge: '🚀 New'
+  }, {
+    id: 'todo',
+    name: 'Todo Widget',
+    description: 'Modern task management with Kanban and List views. Supports drag-and-drop, labels, priorities, subtasks, and dark mode.',
+    url: '/todo',
+    background: 'from-slate-400 via-gray-400 to-zinc-400',
+    preview: {
+      title: '📝 Tasks',
+      subtitle: 'Todo Manager'
+    },
+    buttonColor: 'slate',
+    badge: '🆕 New'
   },
   {
     id: 'birthday',
@@ -75,6 +87,33 @@ const widgets = [
       subtitle: 'Reader'
     },
     buttonColor: 'indigo'
+  },
+  {
+
+    id: 'mongodb-aggregation',
+    name: 'MongoDB Pipeline Builder',
+    description: 'Visual tool for building MongoDB aggregation pipelines with drag-and-drop stages.',
+    url: '/mongodb-aggregation',
+    background: 'from-green-500 to-teal-600',
+    preview: {
+      title: '🍃',
+      subtitle: 'MongoDB Pipeline'
+    },
+    buttonColor: 'green',
+    badge: '🆕 New'
+  },{
+    id: 'sql-visualizer',
+    name: 'SQL Visualizer',
+    description: 'Visualize SQL queries as interactive flow diagrams with tables, joins, and filters.',
+    url: '/sql-visualizer',
+    background: 'from-cyan-400 to-blue-600',
+    preview: {
+      title: '🔍',
+      subtitle: 'SQL Flow'
+    },
+    buttonColor: 'cyan',
+    badge: '✨ New'
+
   }
 ];
 ---
@@ -116,7 +155,14 @@ const widgets = [
               <div class="flex space-x-2">
                 <a 
                   href={widget.url}
-                  class={`bg-${widget.buttonColor}-500 text-white px-4 py-2 rounded-lg hover:bg-${widget.buttonColor}-600 transition-colors`}
+                  class={
+                    widget.buttonColor === 'purple' ? 'bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors' :
+                    widget.buttonColor === 'red' ? 'bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors' :
+                    widget.buttonColor === 'yellow' ? 'bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors' :
+                    widget.buttonColor === 'green' ? 'bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors' :
+                    widget.buttonColor === 'indigo' ? 'bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition-colors' :
+                    'bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors'
+                  }
                 >
                   View Widget
                 </a>

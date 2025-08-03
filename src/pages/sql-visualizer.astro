@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SQLVisualizerWidget from "../components/react/sql-visualizer/index.tsx";
+---
+
+<Layout title="SQL Query Visualizer - Interactive SQL Flow Diagrams">
+  <SQLVisualizerWidget client:load />
+</Layout>
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+</style>
