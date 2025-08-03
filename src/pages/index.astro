@@ -3,6 +3,19 @@ import Layout from "../layouts/Layout.astro";
 
 const widgets = [
   {
+    id: 'todo',
+    name: 'Todo Widget',
+    description: 'Modern task management with Kanban and List views. Supports drag-and-drop, labels, priorities, subtasks, and dark mode.',
+    url: '/todo',
+    background: 'from-slate-400 via-gray-400 to-zinc-400',
+    preview: {
+      title: '📝 Tasks',
+      subtitle: 'Todo Manager'
+    },
+    buttonColor: 'slate',
+    badge: '🆕 New'
+  },
+  {
     id: 'birthday',
     name: 'Birthday Widget',
     description: 'Celebrate birthdays with style! Customizable themes, animations, and confetti effects.',
@@ -64,6 +77,7 @@ const widgets = [
     buttonColor: 'indigo'
   },
   {
+
     id: 'mongodb-aggregation',
     name: 'MongoDB Pipeline Builder',
     description: 'Visual tool for building MongoDB aggregation pipelines with drag-and-drop stages.',
@@ -75,6 +89,19 @@ const widgets = [
     },
     buttonColor: 'green',
     badge: '🆕 New'
+  },{
+    id: 'sql-visualizer',
+    name: 'SQL Visualizer',
+    description: 'Visualize SQL queries as interactive flow diagrams with tables, joins, and filters.',
+    url: '/sql-visualizer',
+    background: 'from-cyan-400 to-blue-600',
+    preview: {
+      title: '🔍',
+      subtitle: 'SQL Flow'
+    },
+    buttonColor: 'cyan',
+    badge: '✨ New'
+
   }
 ];
 ---
