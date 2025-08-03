@@ -34,6 +34,7 @@
     "react-dom": "^19.1.0",
     "react-leaflet": "^5.0.0",
     "react-zoom-pan-pinch": "^3.7.0",
+    "reactflow": "^11.11.4",
     "svelte": "^5.36.17",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3",
