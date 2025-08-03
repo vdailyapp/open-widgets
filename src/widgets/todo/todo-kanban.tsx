@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   DndContext,
   MouseSensor,
@@ -6,15 +6,15 @@ import {
   useSensor,
   useSensors,
   closestCorners,
-} from '@dnd-kit/core';
+} from "@dnd-kit/core";
 import {
   SortableContext,
   verticalListSortingStrategy,
-} from '@dnd-kit/sortable';
-import { useTodoStore } from './todo-store';
-import KanbanColumn from './todo-kanban-column';
-import TaskCard from './todo-task-card';
-import { useState } from 'react';
+} from "@dnd-kit/sortable";
+import { useTodoStore } from "./todo-store";
+import KanbanColumn from "./todo-kanban-column";
+import TaskCard from "./todo-task-card";
+import { useState } from "react";
 
 interface KanbanViewProps {
   tasks: any[];
@@ -49,13 +49,13 @@ const KanbanView: React.FC<KanbanViewProps> = ({ tasks, onEditTask }) => {
   }, {} as Record<string, any[]>);
 
   const handleDragStart = (event: any) => {
-    const task = tasks.find(t => t.id === event.active.id);
+    const task = tasks.find((t) => t.id === event.active.id);
     setActiveTask(task || null);
   };
 
   const handleDragEnd = (event: any) => {
     const { active, over } = event;
-    
+
     if (!over) {
       setActiveTask(null);
       return;
@@ -65,7 +65,7 @@ const KanbanView: React.FC<KanbanViewProps> = ({ tasks, onEditTask }) => {
     const newStatus = over.id as string;
 
     // Check if the drop target is a valid status
-    if (['todo', 'inprogress', 'done'].includes(newStatus)) {
+    if (["todo", "inprogress", "done"].includes(newStatus)) {
       moveTask(taskId, newStatus);
     }
 
@@ -83,11 +83,11 @@ const KanbanView: React.FC<KanbanViewProps> = ({ tasks, onEditTask }) => {
         <div className="flex space-x-6 h-full min-w-fit">
           {settings.kanbanColumns.map((column) => {
             const columnTasks = tasksByStatus[column.id] || [];
-            
+
             return (
               <div key={column.id} className="flex-shrink-0 w-80">
                 <SortableContext
-                  items={columnTasks.map(task => task.id)}
+                  items={columnTasks.map((task) => task.id)}
                   strategy={verticalListSortingStrategy}
                 >
                   <KanbanColumn

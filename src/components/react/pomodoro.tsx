@@ -1,6 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Play, Pause, Clock, RefreshCw, Bell, BarChart2, Settings } from 'lucide-react';
-
+import React, { useState, useEffect, useRef } from "react";
+import {
+  Play,
+  Pause,
+  Clock,
+  RefreshCw,
+  Bell,
+  BarChart2,
+  Settings,
+} from "lucide-react";
+import { Modal } from "antd";
 const PomodoroWidget = () => {
   // Timer configurations
   const [settings, setSettings] = useState({
@@ -31,7 +39,9 @@ const PomodoroWidget = () => {
   // Reset Timer
   const resetTimer = () => {
     setIsRunning(false);
-    setTime(isWorkSession ? settings.workDuration * 60 : settings.breakDuration * 60);
+    setTime(
+      isWorkSession ? settings.workDuration * 60 : settings.breakDuration * 60
+    );
   };
 
   // Timer Logic
@@ -92,7 +102,9 @@ const PomodoroWidget = () => {
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+    return `${minutes.toString().padStart(2, "0")}:${remainingSeconds
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   // Settings Modal Component
@@ -104,12 +116,20 @@ const PomodoroWidget = () => {
       setSettings(tempSettings);
       setShowSettings(false);
       // Reset timer to new duration
-      setTime(isWorkSession ? tempSettings.workDuration * 60 : tempSettings.breakDuration * 60);
+      setTime(
+        isWorkSession
+          ? tempSettings.workDuration * 60
+          : tempSettings.breakDuration * 60
+      );
     };
 
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="w-96 rounded-lg bg-white p-6">
+      <Modal
+        open={showSettings}
+        onCancel={() => setShowSettings(false)}
+        footer={null}
+      >
+        <div className="w-full rounded-lg bg-white p-6">
           <h2 className="mb-4 flex items-center text-xl font-bold">
             <Settings className="mr-2" /> Timer Settings
           </h2>
@@ -150,7 +170,9 @@ const PomodoroWidget = () => {
             </div>
 
             <div>
-              <label className="mb-2 block">Long Break Duration (minutes)</label>
+              <label className="mb-2 block">
+                Long Break Duration (minutes)
+              </label>
               <input
                 type="number"
                 value={tempSettings.longBreakDuration}
@@ -199,14 +221,17 @@ const PomodoroWidget = () => {
             </button>
           </div>
         </div>
-      </div>
+      </Modal>
     );
   };
 
   // Productivity Stats Component
   const ProductivityStats = () => {
     const totalPomodoros = completedPomodoros.length;
-    const totalWorkTime = completedPomodoros.reduce((sum, pomodoro) => sum + pomodoro.duration, 0);
+    const totalWorkTime = completedPomodoros.reduce(
+      (sum, pomodoro) => sum + pomodoro.duration,
+      0
+    );
 
     return (
       <div className="rounded-lg bg-white p-6 shadow-md">
@@ -241,13 +266,13 @@ const PomodoroWidget = () => {
           <div
             className={`
             p-6 text-center 
-            ${isWorkSession ? 'bg-red-500' : 'bg-green-500'} 
+            ${isWorkSession ? "bg-red-500" : "bg-green-500"} 
             text-white
           `}
           >
             <h2 className="mb-2 flex items-center justify-center text-xl">
               <Clock className="mr-2" />
-              {isWorkSession ? 'Work Session' : 'Break Time'}
+              {isWorkSession ? "Work Session" : "Break Time"}
             </h2>
             <div className="text-6xl font-bold">{formatTime(time)}</div>
           </div>
@@ -259,7 +284,9 @@ const PomodoroWidget = () => {
               className={`
                 rounded-full p-3 
                 ${
-                  isRunning ? 'bg-orange-500 hover:bg-orange-600' : 'bg-blue-500 hover:bg-blue-600'
+                  isRunning
+                    ? "bg-orange-500 hover:bg-orange-600"
+                    : "bg-blue-500 hover:bg-blue-600"
                 } 
                 text-white transition-colors
               `}

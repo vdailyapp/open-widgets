@@ -1,0 +1,16 @@
+{
+	"page": {
+		"prefix": "page",
+		"description": "page",
+		"scope": "astro",
+		"body": [
+			"---",
+			"import Layout from \"../layouts/Layout.astro\";",
+			"---",
+			"",
+			"<Layout title=\"\">",
+			"  ",
+			"</Layout>"
+		]
+	}
+}
