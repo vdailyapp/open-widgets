@@ -7,13 +7,16 @@ import svelte from "@astrojs/svelte";
 
 import vue from "@astrojs/vue";
 
-import tailwindcss from "@tailwindcss/vite";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), svelte(), vue()],
-
-  vite: {
-    plugins: [tailwindcss()],
-  },
+  integrations: [
+    react(), 
+    svelte(), 
+    vue(),
+    tailwind({
+      configFile: './tailwind.config.js'
+    })
+  ],
 });

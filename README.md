@@ -1,4 +1,23 @@
-# Astro Starter Kit: Basics
+# Open Widgets - Astro + shadcn/ui
+
+Beautiful, customizable, and embeddable widgets built with Astro, React, and **shadcn/ui** components.
+
+## ✨ NEW: shadcn/ui Integration
+
+This project now includes a complete **shadcn/ui** setup with all essential components:
+
+- 🎨 **Full Component Library**: Button, Card, Input, Dialog, Select, Switch, Tabs, Badge, and more
+- 🌙 **Dark Mode Support**: Complete dark/light theme system
+- 📱 **Responsive Design**: All components work perfectly on any screen size
+- ♿ **Accessibility**: Built-in ARIA support and keyboard navigation
+- 🎯 **TypeScript Ready**: Full type safety and IntelliSense
+
+### Quick Links
+- **[Demo Page](/shadcn-demo)** - Interactive showcase of all shadcn/ui components
+- **[Notes Widget](/notes-shadcn)** - Real-world example using shadcn/ui
+- **[Integration Guide](./SHADCN_INTEGRATION.md)** - Complete setup and usage documentation
+
+---
 
 ```sh
 npm create astro@latest -- --template basics
