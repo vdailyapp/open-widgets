@@ -3,6 +3,19 @@ import Layout from "../layouts/Layout.astro";
 
 const widgets = [
   {
+    id: 'crontab',
+    name: 'Crontab Generator',
+    description: 'Build and understand cron expressions with visual UI. Features simple mode, advanced editor, presets, and dark mode.',
+    url: '/crontab',
+    background: 'from-indigo-500 via-blue-500 to-cyan-500',
+    preview: {
+      title: '⏰ */5 * * * *',
+      subtitle: 'Cron Builder'
+    },
+    buttonColor: 'blue',
+    badge: '🆕 New'
+  },
+  {
     id: 'json-stringify',
     name: 'JSON Stringify Tool',
     description: 'Convert JSON objects to strings with customizable formatting. Features validation, copy to clipboard, and dark mode.',
