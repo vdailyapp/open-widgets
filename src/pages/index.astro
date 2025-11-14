@@ -3,6 +3,19 @@ import Layout from "../layouts/Layout.astro";
 
 const widgets = [
   {
+    id: 'color-picker',
+    name: 'Color Picker',
+    description: 'Pick and convert colors from any format (HEX, RGB, HSL, HSV). Copy to clipboard with ease. SEO-friendly and responsive.',
+    url: '/color-picker',
+    background: 'from-pink-500 via-rose-500 to-red-500',
+    preview: {
+      title: '🎨',
+      subtitle: 'Color Picker'
+    },
+    buttonColor: 'rose',
+    badge: '🆕 New'
+  },
+  {
     id: 'json-stringify',
     name: 'JSON Stringify Tool',
     description: 'Convert JSON objects to strings with customizable formatting. Features validation, copy to clipboard, and dark mode.',
@@ -193,6 +206,7 @@ const widgets = [
                 <a 
                   href={widget.url}
                   class={
+                    widget.buttonColor === 'rose' ? 'bg-rose-500 text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors' :
                     widget.buttonColor === 'purple' ? 'bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors' :
                     widget.buttonColor === 'red' ? 'bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors' :
                     widget.buttonColor === 'yellow' ? 'bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors' :
