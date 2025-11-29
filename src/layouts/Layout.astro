@@ -3,18 +3,26 @@ import '../styles/global.css';
 
 export interface Props {
 	title?: string;
+	description?: string;
+	keywords?: string;
 }
 
-const { title = "Astro Basics" } = Astro.props;
+const { 
+	title = "Astro Basics",
+	description = "Beautiful, customizable, and embeddable widgets for any website or application.",
+	keywords = "widgets, astro, react, embeddable"
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="vi">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
 		<title>{title}</title>
 	</head>
 	<body>
