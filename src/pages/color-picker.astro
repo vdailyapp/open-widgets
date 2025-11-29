@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ColorPicker from "../widgets/color-picker";
+---
+
+<Layout 
+  title="Color Picker Widget - Pick and Convert Colors | HEX, RGB, HSL, HSV"
+  description="Free online color picker tool. Pick colors, convert between HEX, RGB, HSL, and HSV formats. Copy to clipboard with one click. Supports dark mode and color history."
+  keywords="color picker, hex to rgb, rgb to hsl, color converter, color palette, web colors, design tools, color code"
+>
+  <ColorPicker client:only="react" />
+</Layout>
