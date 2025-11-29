@@ -1,9 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SQLVisualizerWidget from "../widgets/sql-visualizer/index.tsx";
+
+export const isWidget = true;
+export const title = "SQL Visualizer";
+export const description = "Visualize SQL queries as interactive flow diagrams.";
+export const category = "Developer Tools";
+export const icon = "🔍";
 ---
 
-<Layout title="SQL Query Visualizer - Interactive SQL Flow Diagrams">
+<Layout title={title}>
   <SQLVisualizerWidget client:load />
 </Layout>
 

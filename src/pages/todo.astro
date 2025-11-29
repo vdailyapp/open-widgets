@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import TodoWidget from "../widgets/todo/todo";
+
+export const isWidget = true;
+export const title = "Todo Widget";
+export const description = "Modern task management with Kanban and List views.";
+export const category = "Productivity";
+export const icon = "📝";
 ---
 
-<Layout title="Todo Widget">
+<Layout title={title}>
   <TodoWidget client:only="react" />
 </Layout>

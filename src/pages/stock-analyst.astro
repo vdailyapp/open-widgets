@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import StockAnalystWidget from "../components/react/stock-analyst";
+
+export const isWidget = true;
+export const title = "Stock Analyst";
+export const description = "Modern stock analysis with real-time data and AI-powered insights.";
+export const category = "Finance";
+export const icon = "📈";
 ---
 
-<Layout title="Stock Analyst Widget">
+<Layout title={title}>
   <StockAnalystWidget client:only="react" />
 </Layout>

@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SwiftRead from "../components/react/reader";
+
+export const isWidget = true;
+export const title = "Reader Widget";
+export const description = "Clean, distraction-free reading experience.";
+export const category = "Productivity";
+export const icon = "📖";
 ---
 
-<Layout>
+<Layout title={title}>
   <SwiftRead />
 </Layout>

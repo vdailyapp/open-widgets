@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import BirthdayWidget from "../widgets/birthday/birthday";
+
+export const isWidget = true;
+export const title = "Birthday Widget";
+export const description = "Celebrate birthdays with style! Customizable themes and animations.";
+export const category = "Personal";
+export const icon = "🎂";
 ---
 
-<Layout title="Happy Birthday Widget">
+<Layout title={title}>
   <BirthdayWidget client:only="react" />
 </Layout>

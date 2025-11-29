@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import MapWidget from "../components/react/map";
+
+export const isWidget = true;
+export const title = "Map Widget";
+export const description = "Interactive maps for location display and geographic visualization.";
+export const category = "Developer Tools";
+export const icon = "🗺️";
 ---
 
-<Layout>
+<Layout title={title}>
   <MapWidget client:only="react" />
 </Layout>
