@@ -3,6 +3,19 @@ import Layout from "../layouts/Layout.astro";
 
 const widgets = [
   {
+    id: 'diff-editor',
+    name: 'Diff Editor',
+    description: 'Upload, edit, and export diff files with Monaco editor. Features side-by-side view, live preview, and command generation.',
+    url: '/diff-editor',
+    background: 'from-gray-600 via-slate-700 to-zinc-800',
+    preview: {
+      title: '⚡',
+      subtitle: 'Diff Editor'
+    },
+    buttonColor: 'slate',
+    badge: '🆕 New'
+  },
+  {
     id: 'json-stringify',
     name: 'JSON Stringify Tool',
     description: 'Convert JSON objects to strings with customizable formatting. Features validation, copy to clipboard, and dark mode.',
