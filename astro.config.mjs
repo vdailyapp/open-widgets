@@ -9,6 +9,8 @@ import vue from "@astrojs/vue";
 
 import tailwind from "@astrojs/tailwind";
 
+import monacoEditorPlugin from 'vite-plugin-monaco-editor';
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -19,4 +21,15 @@ export default defineConfig({
       configFile: './tailwind.config.js'
     })
   ],
+  vite: {
+    plugins: [
+      monacoEditorPlugin.default({
+        languageWorkers: ['editorWorkerService'],
+        customWorkers: []
+      })
+    ],
+    optimizeDeps: {
+      include: ['monaco-editor']
+    }
+  }
 });

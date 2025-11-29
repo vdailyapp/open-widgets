@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CryptoWidget from "../components/react/crypto";
+
+export const isWidget = true;
+export const title = "Crypto Tracker";
+export const description = "Track cryptocurrency prices and market data in real-time.";
+export const category = "Finance";
+export const icon = "₿";
 ---
 
-<Layout>
+<Layout title={title}>
   <CryptoWidget client:only="react" />
 </Layout>

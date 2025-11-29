@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import JsonStringifyWidget from "../widgets/json-stringify/index";
+
+export const isWidget = true;
+export const title = "JSON Stringify Tool";
+export const description = "Convert JSON objects to strings with customizable formatting.";
+export const category = "Developer Tools";
+export const icon = "📦";
 ---
 
-<Layout title="JSON Stringify Tool">
+<Layout title={title}>
   <JsonStringifyWidget client:only="react" />
 </Layout>
