@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ShadcnDemo from "../components/react/shadcn-demo";
+
+export const isWidget = true;
+export const title = "shadcn/ui Components";
+export const description = "Comprehensive showcase of shadcn/ui components.";
+export const category = "UI Kits";
+export const icon = "🎨";
 ---
 
-<Layout title="shadcn/ui Components Demo">
+<Layout title={title}>
   <ShadcnDemo client:only="react" />
 </Layout>

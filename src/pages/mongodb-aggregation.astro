@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import MongoDBAggregationWidget from "../widgets/mongodb-aggregation";
+
+export const isWidget = true;
+export const title = "MongoDB Pipeline Builder";
+export const description = "Visual tool for building MongoDB aggregation pipelines.";
+export const category = "Developer Tools";
+export const icon = "🍃";
 ---
 
-<Layout>
+<Layout title={title}>
   <MongoDBAggregationWidget client:only="react" />
 </Layout>

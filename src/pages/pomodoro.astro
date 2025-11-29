@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PomodoroWidget from "../components/react/pomodoro";
+
+export const isWidget = true;
+export const title = "Pomodoro Timer";
+export const description = "Boost productivity with the proven Pomodoro Technique.";
+export const category = "Productivity";
+export const icon = "🍅";
 ---
 
-<Layout>
+<Layout title={title}>
   <PomodoroWidget client:only="react" />
 </Layout>

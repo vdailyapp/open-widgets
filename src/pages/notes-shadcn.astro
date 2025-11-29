@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NoteTakingWidget from "../components/react/notes-shadcn";
+
+export const isWidget = true;
+export const title = "Notes Widget (shadcn/ui)";
+export const description = "Practical note-taking widget built with shadcn/ui components.";
+export const category = "Productivity";
+export const icon = "📝";
 ---
 
-<Layout title="Notes Widget - shadcn/ui Example">
+<Layout title={title}>
   <NoteTakingWidget client:only="react" />
 </Layout>

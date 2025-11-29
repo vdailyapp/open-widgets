@@ -13,6 +13,16 @@ const widgets = [
       subtitle: 'Cron Builder'
     },
     buttonColor: 'blue',
+    id: 'diff-editor',
+    name: 'Diff Editor',
+    description: 'Upload, edit, and export diff files with Monaco editor. Features side-by-side view, live preview, and command generation.',
+    url: '/diff-editor',
+    background: 'from-gray-600 via-slate-700 to-zinc-800',
+    preview: {
+      title: '⚡',
+      subtitle: 'Diff Editor'
+    },
+    buttonColor: 'slate',
     badge: '🆕 New'
   },
   {
@@ -166,78 +176,297 @@ const widgets = [
     badge: '✨ shadcn/ui'
   }
 ];
+
+const features = [
+  {
+    icon: '🔧',
+    title: 'Fully Customizable',
+    description: 'Easily tailor the appearance and functionality of each widget to match your brand and needs.'
+  },
+  {
+    icon: '📱',
+    title: 'Responsive Design',
+    description: 'All widgets are designed to work seamlessly on any device, from desktops to mobile phones.'
+  },
+  {
+    icon: '🚀',
+    title: 'Easy Integration',
+    description: 'Embed any widget into your website or application with a single line of code.'
+  },
+  {
+    icon: '🎨',
+    title: 'Beautifully Designed',
+    description: 'Modern, clean, and visually appealing designs that enhance your user experience.'
+  }
+];
+
+const testimonials = [
+  {
+    quote: "Open Widgets transformed our user dashboard. The widgets are not only beautiful but also incredibly easy to integrate. A total game-changer for our team!",
+    name: "Alex Johnson",
+    title: "Lead Developer at TechCorp"
+  },
+  {
+    quote: "I was looking for a quick way to add interactive elements to our client's site, and Open Widgets delivered. The documentation is clear, and the variety of widgets is impressive.",
+    name: "Samantha Lee",
+    title: "Freelance Web Designer"
+  },
+  {
+    quote: "As an open-source project, the quality and support are outstanding. We've contributed to the project and found the community to be very welcoming.",
+    name: "David Chen",
+    title: "Product Manager at Innovate Inc."
+  }
+];
+
+const faqs = [
+  {
+    question: "Are the widgets free to use?",
+    answer: "Yes, all widgets are open-source and free to use in any project, personal or commercial. You can find the source code on GitHub."
+  },
+  {
+    question: "How do I customize a widget?",
+    answer: "Each widget can be customized through URL parameters or by sending messages via the postMessage API. Check the documentation for each widget for specific customization options."
+  },
+  {
+    question: "Do the widgets work with my framework?",
+    answer: "Absolutely. Since the widgets are embedded as iframes, they are framework-agnostic and will work with any website, whether it's built with React, Vue, Angular, or plain HTML."
+  },
+    {
+    question: "Where can I get support?",
+    answer: "You can open an issue on our GitHub repository for any bugs or feature requests. We also have a community Discord server for discussions."
+  }
+];
 ---
 
-<Layout title="Open Widgets - Beautiful, Embeddable Widgets">
-  <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
-          🎨 Open Widgets
-        </h1>
-        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-          Beautiful, customizable, and embeddable widgets for any website or application.
-          Each widget is responsive, feature-rich, and easy to integrate.
-        </p>
+<Layout title="Open Widgets - Beautiful, Embeddable Widgets for Your Website">
+  <div class="min-h-screen bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 transition-shadow duration-300">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <a href="/" class="text-xl font-bold text-gray-900">🚀 Open Widgets</a>
+          <nav class="hidden md:flex gap-8 items-center">
+            <a href="#features" class="text-gray-600 hover:text-gray-900">Features</a>
+            <a href="#widgets" class="text-gray-600 hover:text-gray-900">Widgets</a>
+            <a href="#testimonials" class="text-gray-600 hover:text-gray-900">Testimonials</a>
+            <a href="#faq" class="text-gray-600 hover:text-gray-900">FAQ</a>
+          </nav>
+          <a href="https://github.com/your-repo" target="_blank" class="hidden md:inline-block bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors">
+            View on GitHub
+          </a>
+        </div>
       </div>
+    </header>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {widgets.map(widget => (
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-            <div class={`h-48 bg-gradient-to-br ${widget.background} relative`}>
-              <div class="absolute inset-0 flex items-center justify-center">
+    <!-- Hero Section -->
+    <section class="text-center py-20 bg-white relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-full bg-grid-gray-200/[0.6] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <div class="max-w-4xl mx-auto px-4 relative">
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+          Supercharge Your Website with Powerful, Embeddable Widgets
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8">
+          A toolbox of beautifully designed, open-source widgets that are easy to integrate and customize for any application.
+        </p>
+        <div class="flex justify-center gap-4">
+          <a href="#widgets" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
+            Explore Widgets
+          </a>
+          <a href="https://github.com/your-repo" target="_blank" class="bg-gray-200 text-gray-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Why Choose Open Widgets?</h2>
+          <p class="text-lg text-gray-600 mt-4">Here are a few reasons why our widgets are the best choice for your project.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map(feature => (
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+              <div class="text-4xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Widget Gallery -->
+    <section id="widgets" class="py-20 bg-gray-100">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Widget Collection</h2>
+          <p class="text-lg text-gray-600 mt-4">Explore our growing library of open-source widgets.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {widgets.map(widget => (
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+              <div class={`h-48 bg-gradient-to-br ${widget.background} flex items-center justify-center p-4`}>
                 <div class="text-center text-white">
-                  <div class="text-3xl font-bold mb-2">{widget.preview.title}</div>
-                  {widget.preview.subtitle && (
-                    <div class="text-lg">{widget.preview.subtitle}</div>
-                  )}
-                  {widget.preview.icons && (
-                    <div class="text-2xl">{widget.preview.icons}</div>
-                  )}
+                  <div class="text-3xl font-bold">{widget.preview.title}</div>
+                  {widget.preview.subtitle && <div class="text-lg">{widget.preview.subtitle}</div>}
+                  {widget.preview.icons && <div class="text-2xl mt-2">{widget.preview.icons}</div>}
+                </div>
+              </div>
+              <div class="p-6 flex-grow flex flex-col">
+                <div class="flex justify-between items-start">
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">{widget.name}</h3>
+                  {widget.badge && <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold flex-shrink-0">{widget.badge}</span>}
+                </div>
+                <p class="text-gray-600 mb-4 h-20 overflow-hidden">{widget.description}</p>
+                <div class="mt-auto flex gap-2">
+                    <a href={widget.url} class="inline-block bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-900 transition-colors">
+                      View Demo
+                    </a>
+                    <button data-widget-id={widget.id} class="get-embed-code-btn inline-block bg-indigo-100 text-indigo-800 px-4 py-2 rounded-lg hover:bg-indigo-200 transition-colors">
+                      Get Code
+                    </button>
                 </div>
               </div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">{widget.name}</h3>
-              <p class="text-gray-600 mb-4">
-                {widget.description}
-              </p>
-              <div class="flex space-x-2">
-                <a 
-                  href={widget.url}
-                  class={
-                    widget.buttonColor === 'purple' ? 'bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors' :
-                    widget.buttonColor === 'red' ? 'bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors' :
-                    widget.buttonColor === 'yellow' ? 'bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors' :
-                    widget.buttonColor === 'green' ? 'bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors' :
-                    widget.buttonColor === 'indigo' ? 'bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition-colors' :
-                    'bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors'
-                  }
-                >
-                  View Widget
-                </a>
-                {widget.badge && (
-                  <span class="bg-green-100 text-green-800 px-3 py-2 rounded-lg text-sm">
-                    {widget.badge}
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div class="mt-16 text-center">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">🚀 Easy to Embed</h2>
-        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
-          All widgets are designed to be easily embedded in any website using iframes. 
-          They support the postMessage API for external configuration and localStorage for persistence.
-        </p>
-        <div class="bg-gray-800 text-green-400 p-4 rounded-lg max-w-2xl mx-auto text-left font-mono text-sm">
-          <div class="text-gray-400 mb-2">// Embed any widget</div>
-          <div>&lt;iframe src="http://localhost:4321/birthday" width="800" height="600"&gt;&lt;/iframe&gt;</div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Easy to Embed Section -->
+    <section id="embed" class="py-20">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Embed in Seconds</h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Click "Get Code" on any widget, then copy and paste the snippet into your site.
+        </p>
+        <div class="bg-gray-900 text-white p-4 rounded-lg text-left font-mono text-sm relative">
+          <button id="copy-button" class="absolute top-2 right-2 bg-gray-700 text-gray-300 px-3 py-1 rounded-md text-xs hover:bg-gray-600 transition-all">Copy</button>
+          <pre><code id="embed-code" class="text-green-400">
+&lt;iframe
+  src="https://your-domain.com/birthday"
+  width="100%"
+  height="600"
+  frameborder="0"
+&gt;&lt;/iframe&gt;
+          </code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-100">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Loved by Developers Worldwide</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map(testimonial => (
+            <div class="bg-white p-8 rounded-lg shadow-md">
+              <p class="text-gray-600 mb-6">"{testimonial.quote}"</p>
+              <div class="font-semibold text-gray-900">{testimonial.name}</div>
+              <div class="text-sm text-gray-500">{testimonial.title}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4">
+                {faqs.map(faq => (
+                    <details class="group bg-white p-6 rounded-lg shadow-md">
+                        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg text-gray-900">
+                            {faq.question}
+                            <svg class="w-5 h-5 transition-transform transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <p class="mt-4 text-gray-600">
+                            {faq.answer}
+                        </p>
+                    </details>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <p class="mb-4">&copy; {new Date().getFullYear()} Open Widgets. All rights reserved.</p>
+        <div class="flex justify-center gap-6">
+          <a href="#features" class="hover:text-gray-300">Features</a>
+          <a href="#widgets" class="hover:text-gray-300">Widgets</a>
+          <a href="https://github.com/your-repo" target="_blank" class="hover:text-gray-300">GitHub</a>
+          <a href="#faq" class="hover:text-gray-300">FAQ</a>
+        </div>
+      </div>
+    </footer>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Sticky header shadow on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Copy button functionality
+        const copyButton = document.getElementById('copy-button');
+        const embedCode = document.getElementById('embed-code');
+        copyButton.addEventListener('click', () => {
+            navigator.clipboard.writeText(embedCode.innerText);
+            copyButton.innerText = 'Copied!';
+            copyButton.classList.add('bg-green-500');
+            setTimeout(() => {
+                copyButton.innerText = 'Copy';
+                copyButton.classList.remove('bg-green-500');
+            }, 2000);
+        });
+
+        // Dynamic embed code
+        const getEmbedCodeButtons = document.querySelectorAll('.get-embed-code-btn');
+        const embedSection = document.getElementById('embed');
+
+        getEmbedCodeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const widgetId = button.dataset.widgetId;
+                const newSrc = `https://your-domain.com/${widgetId}`;
+                embedCode.innerHTML = `
+&lt;iframe
+  src="${newSrc}"
+  width="100%"
+  height="600"
+  frameborder="0"
+&gt;&lt;/iframe&gt;
+                `.trim();
+                
+                // Scroll to the embed section
+                embedSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+  </script>
 </Layout>
